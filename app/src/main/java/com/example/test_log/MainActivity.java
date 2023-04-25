@@ -30,21 +30,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //callnavigation
-        setUpNavController();
-        setUpBottomNavigationView();
+
 
     }
 
-    private void setUpBottomNavigationView(){
-        bottomNavigationView = findViewById(R.id.menu_bottom_nav);
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
-    }
 
-    private void setUpNavController(){
-        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.frag_container);
-        if(navHostFragment !=null)
-            navController = navHostFragment.getNavController();
-    }
 }
 
 
