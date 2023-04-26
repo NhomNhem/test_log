@@ -20,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
+    private HomeFragment homeFragment = new HomeFragment();
+    private NewsFragment newsFragment = new NewsFragment();
+    private ProfileFragment profileFragment = new ProfileFragment();
 
-    private NavController navController;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -29,7 +31,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //callnavigation
+        bottomNavigationView = findViewById(R.id.menu_bottom_nav);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,homeFragment).commit();
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+               if(item.getItemId() == R.id.item_nv_home){
+                   getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,homeFragment).commit();
+                   return true;
+               }else if(item.getItemId() == R.id.item_nv_news)
+               {
+                   getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,newsFragment).commit();
+                   return true;
+               }else
+               {
+                   getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,profileFragment).commit();
+                   return true;
+               }
+
+
+            }
+        });
 
 
     }
