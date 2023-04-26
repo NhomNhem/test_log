@@ -9,6 +9,7 @@
         android:id="@+id/item_nv_news"
         android:title="@string/nav_botoom_news"
         android:icon="@drawable/baseline_newspaper_24"
+        
         />
     <item
         android:id="@+id/item_nv_profile"

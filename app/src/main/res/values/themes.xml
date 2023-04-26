@@ -6,5 +6,10 @@
 
     </style>
 
+    <style name="notifyModeSwitch" parent="Theme.AppCompat.Light">
+        <item   name="colorControlActivated">@color/notify_mode</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+    </style>
     <style name="Theme.Test_log" parent="Base.Theme.Test_log" />
 </resources>

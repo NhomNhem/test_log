@@ -36,5 +36,6 @@ public class SplashActivity extends AppCompatActivity {
             //dalogin
             startActivity(new Intent(SplashActivity.this,MainActivity.class));
         }
+        finish();
     }
 }
