@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
-import com.example.news.MainActivity;
-import com.example.news.R;
-import com.example.news.dao.NewsDAO;
-import com.example.news.enity.News;
+import com.example.test_log.MainActivity;
+import com.example.test_log.R;
+import com.example.test_log.enity.News;
 
 import java.util.ArrayList;
 
@@ -21,14 +21,15 @@ public class NewsAdapter extends ArrayAdapter<News> {
     Context context;
     TextView tv_name;
     ArrayList<News> list;
-    NewsDAO dao;
+    News dao;
     View v_del;
     MainActivity main;
-    public NewsAdapter(@NonNull Context context,MainActivity activity, ArrayList<News> list) {
+    FragmentActivity homeFragment;
+    public NewsAdapter(@NonNull Context context, FragmentActivity activity, ArrayList<News> list) {
         super(context, 0, list);
         this.context = context;
         this.list = list;
-        this.main = activity;
+        this.homeFragment = activity;
     }
 
     @NonNull

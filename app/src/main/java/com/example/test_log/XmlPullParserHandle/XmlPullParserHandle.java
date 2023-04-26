@@ -3,6 +3,8 @@ package com.example.test_log.XmlPullParserHandle;
 import android.util.Log;
 import android.util.Xml;
 
+import com.example.test_log.enity.Item;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
