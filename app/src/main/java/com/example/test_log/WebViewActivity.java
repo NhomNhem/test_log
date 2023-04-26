@@ -19,5 +19,6 @@ public class WebViewActivity extends AppCompatActivity {
         String link = intent.getStringExtra("linknews");
         webView.loadUrl(link);
         webView.setWebViewClient(new WebViewClient());
+
     }
 }
