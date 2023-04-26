@@ -6,8 +6,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.news.data.DbHelper;
-import com.example.news.enity.News;
+import com.example.test_log.data.DbHelper;
+import com.example.test_log.enity.News;
+import com.example.test_log.data.DbHelper;
+import com.example.test_log.enity.News;
 
 import java.util.ArrayList;
 import java.util.List;

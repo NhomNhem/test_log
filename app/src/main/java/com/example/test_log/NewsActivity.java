@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.news.adapter.News_Adapter;
-import com.example.news.enity.Item;
-import com.example.news.xmlpullparser.XmlPullParserHandler;
+import com.example.test_log.adapter.News_Adapter;
+import com.example.test_log.enity.Item;
+import com.example.test_log.XmlPullParserHandle.XmlPullParserHandle;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -110,7 +110,7 @@ public class NewsActivity extends AppCompatActivity {
         }
         public List<Item> loadURLfromNetWork(String strUrl)throws Exception{
             InputStream stream = null;
-            XmlPullParserHandler handler = new XmlPullParserHandler();
+            XmlPullParserHandle handler = new XmlPullParserHandle();
             ItemLists = null;
             try {
                 stream = downloadURL(strUrl);
