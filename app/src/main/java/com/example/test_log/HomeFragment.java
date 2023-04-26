@@ -115,9 +115,10 @@ public class HomeFragment extends Fragment {
                 if (checkNetwork()){
                     String link = list.get(i).getLink();
                     if (!link.isEmpty()){
-                        Intent intent = new Intent(getActivity(), NewsActivity.class);
+                        Intent intent = new Intent(getActivity(), NewsFragment.class);
                         intent.putExtra("link", link);
                         startActivity(intent);
+
                     }
                 }else {
                     NoInternetToast();

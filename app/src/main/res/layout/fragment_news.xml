@@ -6,9 +6,15 @@
     tools:context=".NewsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="News" />
+        android:id="@+id/view_pager_news">
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab_layout_newfrag"/>
+
+    </androidx.viewpager.widget.ViewPager>
 
 </FrameLayout>
