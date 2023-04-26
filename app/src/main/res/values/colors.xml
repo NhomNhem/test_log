@@ -4,4 +4,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lavender">#8692f7</color>
     <color name="purple88">#dcd6ec</color>
+
+
+    <color name="primary">#1B023B</color>
+    <color name="secondary">#FF03DAC5</color>
+    <color name="notify_mode">#6124B1</color>
+    <color name="noty">#13B2C3</color>
+    <color name="private_acc">#E6A326</color>
+    <color name="security">#D95F69</color>
+
+    <color name="blue100">#BBD8F2</color>
 </resources>
