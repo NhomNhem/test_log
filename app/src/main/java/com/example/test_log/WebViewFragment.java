@@ -80,11 +80,11 @@ public class WebViewFragment extends Fragment {
         return view;
     }
 
-    @Override
+   /* @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Bundle args = getArguments();
         ((TextView) view.findViewById(android.R.id.text1))
                 .setText(Integer.toString(args.getInt(ARG_OBJECT)));
-    }
+    }*/
 }

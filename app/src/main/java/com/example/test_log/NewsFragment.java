@@ -1,6 +1,7 @@
 package com.example.test_log;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,14 +9,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.test_log.enity.Item;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +35,10 @@ import java.util.List;
  */
 public class NewsFragment extends Fragment {
 
-    private NewsViewPagerAdapter adapter;
+    private ArrayAdapter adapter;
     private ViewPager viewPager;
+    private ListView listView;
+    ArrayList<String> arrayTi;
     private View view;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,20 +89,60 @@ public class NewsFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_news, container, false);
 
+        listView =(ListView) view.findViewById(R.id.lv_new);
+        arrayTi = new ArrayList<>();
+        adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1);
+        listView.setAdapter(adapter);
 
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frag_container,new WebViewFragment()).commit();
 
-
+        new ReadRSS().execute("https://vtv.vn/rss.htm");
 
 
         return view;
     }
+    private class ReadRSS extends AsyncTask<String, Void, String>{
 
-    @Override
+        @Override
+        protected String doInBackground(String... strings) {
+
+            StringBuilder conten = new StringBuilder();
+
+            try {
+                URL url = new URL(strings[0]);
+
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                String line = "";
+                while ((line = bufferedReader.readLine())!= null){
+                    conten.append(line);
+                }
+                bufferedReader.close();
+
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            return conten.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Toast.makeText(getActivity(),s,Toast.LENGTH_SHORT).show();
+        }
+    }
+
+   /* @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         adapter = new NewsViewPagerAdapter(getChildFragmentManager());
         viewPager =view.findViewById(R.id.view_pager_news);
         viewPager.setAdapter(adapter);
 
-    }
+    }*/
 }

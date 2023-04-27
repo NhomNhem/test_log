@@ -6,7 +6,7 @@
     tools:context=".NewsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.viewpager.widget.ViewPager
+    <!--<androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/view_pager_news">
@@ -15,6 +15,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/tab_layout_newfrag"/>
 
-    </androidx.viewpager.widget.ViewPager>
+    </androidx.viewpager.widget.ViewPager>-->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_new"/>
 
 </FrameLayout>
