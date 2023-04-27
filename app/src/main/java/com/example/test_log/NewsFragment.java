@@ -18,7 +18,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.test_log.XmlPullParserHandle.XMLDOMParser;
+import com.example.test_log.XmlPullParserHandle.XmlPullParserHandle;
+import com.example.test_log.adapter.News_Adapter;
 import com.example.test_log.enity.Item;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,6 +45,7 @@ public class NewsFragment extends Fragment {
     private ViewPager viewPager;
     private ListView listView;
     ArrayList<String> arrayTi;
+    private News_Adapter adapter_;
     private View view;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -133,7 +140,16 @@ public class NewsFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Toast.makeText(getActivity(),s,Toast.LENGTH_SHORT).show();
+
+            XMLDOMParser parser = new XMLDOMParser();
+
+            Document document = parser.getDocument(s);
+            NodeList nodeList = document.getElementsByTagName("item");
+
+
+
+
+            Toast.makeText(getActivity(),"Item",Toast.LENGTH_SHORT).show();
         }
     }
 
